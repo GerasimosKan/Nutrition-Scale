@@ -11,6 +11,12 @@ Welcome to the **Nutrition Scale App**! This Flask web application allows users 
 - **Clear Daily Data**: Easily reset your daily consumption data.
 - **User-Friendly Interface**: Built with Bootstrap for a clean and responsive design.
 
+## :bookmark_tabs: Roadmap
+- User Login
+- Phone app
+- ESP Scale integration
+- Data Tracking
+
 ## 📜 License
 
 This project is licensed under the [Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
