@@ -93,7 +93,7 @@ Contributions are welcome! If you'd like to improve this project, please fork th
 
 ## 🤝 Acknowledgements
 
-- Thanks to [FatSecret](https://www.fatsecret.com/) for providing the API for nutrition data.
+- Thanks to [FatSecret](https://www.fatsecret.com/){:target="_blank"} for providing the API for nutrition data.
 - Inspired by community feedback and user needs.
 
 Happy tracking! 🎉
