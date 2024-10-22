@@ -2,7 +2,7 @@ import os
 
 import requests
 from dotenv import load_dotenv
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 from requests.auth import HTTPBasicAuth
 
 # Load environment variables
@@ -12,6 +12,9 @@ CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 
 app = Flask(__name__)
+
+# Initialize a list to store daily food consumption
+daily_consumption = []
 
 
 def get_access_token():
@@ -31,10 +34,16 @@ def get_access_token():
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    global daily_consumption  # Use global variable to track daily consumption
     results = []
     nutrition_info = None  # To hold nutritional information
+    total_nutrition = {"calories": 0, "fat": 0, "carbs": 0, "protein": 0}
 
     if request.method == "POST":
+        if "clear_day" in request.form:  # Handle clear day action
+            daily_consumption.clear()  # Clear the daily consumption list
+            return redirect(url_for("index"))  # Redirect to clear form inputs
+
         search_term = request.form.get("search_term")
 
         # Get access token
@@ -110,6 +119,21 @@ def index():
                         "carbs": round(carbs, 2),
                         "protein": round(protein, 2),
                     }
+
+                    # Save the food item and weight in the daily consumption list
+                    daily_consumption.append(
+                        {
+                            "food_name": food_detail.get("food_name"),
+                            "weight": weight,
+                            "nutrition": nutrition_info,
+                        }
+                    )
+
+                    # Update total nutrition values
+                    total_nutrition["calories"] += nutrition_info["calories"]
+                    total_nutrition["fat"] += nutrition_info["fat"]
+                    total_nutrition["carbs"] += nutrition_info["carbs"]
+                    total_nutrition["protein"] += nutrition_info["protein"]
                 else:
                     print("No servings found for this food item.")
             else:
@@ -117,7 +141,13 @@ def index():
                     "Error getting food details:", response.status_code, response.text
                 )
 
-    return render_template("index.html", results=results, nutrition_info=nutrition_info)
+    return render_template(
+        "index.html",
+        results=results,
+        nutrition_info=nutrition_info,
+        daily_consumption=daily_consumption,
+        total_nutrition=total_nutrition,
+    )
 
 
 if __name__ == "__main__":
