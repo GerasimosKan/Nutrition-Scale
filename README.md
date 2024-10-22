@@ -1,7 +1,52 @@
 
-# 🍽️ Nutrition Scale Project
+# 🍏 Nutrition Scale App
 
-Welcome to the **Nutrition Scale Project**! This Flask application allows users to search for food items and calculate their daily nutrition intake based on the selected foods and their respective weights. Users can also clear their daily entries and view their total nutrition information conveniently.
+Welcome to the **Nutrition Scale App**! This Flask web application allows users to search for food items, view their nutritional information, and keep track of their daily food consumption. 🍽️
+
+## 🚀 Features
+
+- **Search for Food**: Enter the name of a food item to find its nutritional details.
+- **Calculate Nutrition**: Get nutritional information based on the weight of the selected food item.
+- **Daily Consumption Tracker**: Keep track of all the foods consumed in a day and see total nutrition.
+- **Clear Daily Data**: Easily reset your daily consumption data.
+- **User-Friendly Interface**: Built with Bootstrap for a clean and responsive design.
+
+## 📜 License
+
+This project is licensed under the [Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+## 🔧 Technologies Used
+
+- **Flask**: A lightweight web framework for Python.
+- **Bootstrap**: For responsive UI components.
+- **Requests**: To make API calls to the FatSecret API for food data.
+- **dotenv**: For managing environment variables.
+
+## ⚙️ Setup Instructions
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/GerasimosKan/nutrition-scale-app.git
+   cd nutrition-scale-app
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Set Up Environment Variables**: Create a `.env` file in the root directory with the following content:
+   ```plaintext
+   CLIENT_ID=your_client_id
+   CLIENT_SECRET=your_client_secret
+   ```
+
+4. **Run the Application**:
+   ```bash
+   python app.py
+   ```
+
+5. **Access the App**: Open your browser and go to `http://127.0.0.1:5000`.
 
 ## 🌟 Features
 
@@ -17,10 +62,6 @@ Welcome to the **Nutrition Scale Project**! This Flask application allows users 
 - **FatSecret API**: Provides access to a comprehensive food database and nutritional information.
 - **HTML/CSS**: For front-end development and user interface.
 - **Bootstrap**: For responsive and modern UI components.
-
-## ⚖️ License
-
-This project is licensed under the [Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). You are free to share and adapt the material, but please provide appropriate credit and do not use it for commercial purposes.
 
 ## 📝 How to Run the Project
 
